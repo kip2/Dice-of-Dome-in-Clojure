@@ -1,25 +1,6 @@
 (ns dice-of-doom.core
   (:require [clojure.string :as str]))
 
-(declare print-tag tag)
-
-;; testcase
-(println "1")
-(print-tag "a-tag" '(("color" "blue") ("height" 9)) false)
-(println "")
-
-(println "2")
-(print-tag "a-tag" '(("color" "blue") ("height" 9)) nil)
-(println "")
-
-(println "3")
-(print-tag "a-tag" '(("color" "blue") ("height" 9)) true)
-(println "")
-
-(println "4")
-(print-tag "a-tag" nil true)
-(println "")
-
 (defn print-tag [name atts closingp]
   (print (str "<" (if closingp "/" "") (str/lower-case name)))
   (doseq [[k v] atts]
