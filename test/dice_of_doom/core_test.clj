@@ -35,3 +35,19 @@
 
     (let [output (with-out-str (tag "a-tag" '(:class "my-class")))]
       (is (= "<a-tag class=\"my-class\"></a-tag>" output)))))
+
+(deftest test-html-macro
+  (testing "html macro generates correct HTML tags"
+    (let [output (with-out-str (html))]
+      (is (= "<html></html>" output)))
+
+    (let [output (with-out-str (html "Hello, HTML!"))]
+      (is (= "<html>Hello, HTML!</html>" output)))))
+
+(deftest test-body-macro
+  (testing "body macro generates correct HTML tags"
+    (let [output (with-out-str (body))]
+      (is (= "<body></body>" output)))
+
+    (let [output (with-out-str (body "Hello, BODY!"))]
+      (is (= "<body>Hello, BODY!</body>" output)))))
