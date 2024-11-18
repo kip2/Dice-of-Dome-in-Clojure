@@ -1,11 +1,15 @@
 (ns dice-of-doom.core
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [clojure.test :refer :all]))
 
-(defn print-tag [name atts closingp]
-  (print (str "<" (if closingp "/" "") (str/lower-case name)))
+(defn print-tag [tag-name atts closingp]
+  (print (str "<" (if closingp "/" "") (str/lower-case tag-name)))
   (doseq [[k v] atts]
-    (print (str " " k "=\"" v "\"")))
+    (print (str " " (name k) "=\"" v "\"")))
   (print ">"))
+
+(print-tag "div" {:class "my-class" :id "main"} false)
+
 
 (defmacro tag [name atts & body]
   `(do

@@ -5,10 +5,10 @@
 (deftest test-print-tag
   (testing "print-tag generates correct HTML tags"
     (let [output (with-out-str (print-tag "div" {:class "my-class" :id "main"} false))]
-      (is (= "<div :class=\"my-class\" :id=\"main\">" output)))
+      (is (= "<div class=\"my-class\" id=\"main\">" output)))
 
     (let [output (with-out-str (print-tag "DIV" {:class "my-class" :id "main"} true))]
-      (is (= "</div :class=\"my-class\" :id=\"main\">" output)))
+      (is (= "</div class=\"my-class\" id=\"main\">" output)))
 
     (let [output (with-out-str (print-tag "span" {} false))]
       (is (= "<span>" output)))
