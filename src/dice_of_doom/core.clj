@@ -26,16 +26,7 @@
   `(tag "body" []
         ~@body))
 
-
-(deftest test-tag-macro
-  (testing "tag macro generates correct HTML tags"
-    (let [output (with-out-str (tag "a-tag" [:class "my-class"]))]
-      (is (= "<a-tag class=\"my-class\"></a-tag>" output)))
-
-    (let [output (with-out-str (tag "a-tag" '(:class "my-class")))]
-      (is (= "<a-tag class=\"my-class\"></a-tag>" output)))))
-
-
+;; todo: rewrite this code into test case.
 (html
  (body
   "Hello, HTML!"))
@@ -49,6 +40,7 @@
          :width ~width]
         ~@body))
 
+;; todo: rewrite this code into test case.
 (svg 100 100 "svg body")
 ; <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="100" width="100">svg body</svg>
 

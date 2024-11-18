@@ -28,3 +28,10 @@
     (let [output (with-out-str (print-tag "a-tag" nil true))]
       (is (= "</a-tag>" output)))))
 
+(deftest test-tag-macro
+  (testing "tag macro generates correct HTML tags"
+    (let [output (with-out-str (tag "a-tag" [:class "my-class"]))]
+      (is (= "<a-tag class=\"my-class\"></a-tag>" output)))
+
+    (let [output (with-out-str (tag "a-tag" '(:class "my-class")))]
+      (is (= "<a-tag class=\"my-class\"></a-tag>" output)))))
