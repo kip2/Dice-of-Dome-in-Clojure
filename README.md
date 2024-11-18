@@ -1,6 +1,6 @@
 # Dice-of-Dome-in-Clojure
 
-This is a Clojure implementation of Dice of Dome from Land of Lisp.
+Land of Lispで登場する、Dice of DoomをClojureで作成したリポジトリです。
 
 ## Installation
 
