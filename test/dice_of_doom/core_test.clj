@@ -63,7 +63,7 @@
       (is (= "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"100\" width=\"100\">svg body</svg>" output)))))
 
 (deftest brightness-test
-  (testing ""
+  (testing "brightness function adjusts color values within the valid range."
     (let [color (brightness '(255 0 0) -100)]
       (is (= '(155 0 0) color)))
 
