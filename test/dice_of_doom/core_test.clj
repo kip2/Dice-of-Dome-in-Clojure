@@ -89,3 +89,9 @@
 
     (let [style (svg-style [255 255 255])]
       (is (= "{fill:rgb(255,255,255);stroke:rgb(155,155,155)}" style)))))
+
+(deftest circle-test
+  (testing ""
+    (let [circle-svg (circle [50 50] 50 [255 0 0])]
+      (is (= "<circle cx=\"50\" cy=\"50\" r=\"50\" style=\"{fill:rgb(255,0,0);stroke:rgb(155,0,0)}\"></circle>" circle-svg)))))
+

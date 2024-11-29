@@ -45,3 +45,10 @@
     (format "{fill:rgb(%d,%d,%d);stroke:rgb(%d,%d,%d)}"
             (nth color 0) (nth color 1) (nth color 2)
             (nth adjusted-color 0) (nth adjusted-color 1) (nth adjusted-color 2))))
+
+(defn circle [center radius color]
+  (tag "circle" [:cx (first center)
+                 :cy (second center)
+                 :r radius
+                 :style (svg-style color)]))
+
