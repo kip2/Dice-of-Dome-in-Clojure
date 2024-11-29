@@ -79,4 +79,13 @@
     (let [color (brightness '(255 255 255) 100)]
       (is (= '(255 255 255) color)))))
 
+(deftest svg-style-test
+  (testing "svg-style function generage svg style strings."
+    (let [style (svg-style [50 50 50])]
+      (is (= "{fill:rgb(50,50,50);stroke:rgb(0,0,0)}" style)))
 
+    (let [style (svg-style [150 150 150])]
+      (is (= "{fill:rgb(150,150,150);stroke:rgb(50,50,50)}" style)))
+
+    (let [style (svg-style [255 255 255])]
+      (is (= "{fill:rgb(255,255,255);stroke:rgb(155,155,155)}" style)))))

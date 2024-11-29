@@ -39,3 +39,9 @@
 (defn brightness [col amt]
   (map (fn [x] (min 255 (max 0 (+ x amt))))
        col))
+
+(defn svg-style [color]
+  (let [adjusted-color (brightness color -100)]
+    (format "{fill:rgb(%d,%d,%d);stroke:rgb(%d,%d,%d)}"
+            (nth color 0) (nth color 1) (nth color 2)
+            (nth adjusted-color 0) (nth adjusted-color 1) (nth adjusted-color 2))))
