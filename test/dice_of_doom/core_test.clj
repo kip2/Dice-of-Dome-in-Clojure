@@ -2,7 +2,7 @@
   (:require [clojure.test :refer :all]
             [dice-of-doom.core :refer :all]))
 
-(deftest test-print-tag
+(deftest print-tag-test
   (testing "print-tag generates correct HTML tags"
     (let [output  (print-tag "div" {:class "my-class" :id "main"} false)]
       (is (= "<div class=\"my-class\" id=\"main\">" output)))
@@ -28,7 +28,7 @@
     (let [output  (print-tag "a-tag" nil true)]
       (is (= "</a-tag>" output)))))
 
-(deftest test-tag-macro
+(deftest tag-macro-test
   (testing "tag macro generates correct HTML tags"
     (let [output  (tag "a-tag" [:class "my-class"])]
       (is (= "<a-tag class=\"my-class\"></a-tag>" output)))
@@ -36,7 +36,7 @@
     (let [output  (tag "a-tag" '(:class "my-class"))]
       (is (= "<a-tag class=\"my-class\"></a-tag>" output)))))
 
-(deftest test-html-macro
+(deftest html-macro-test
   (testing "html macro generates correct HTML tags"
     (let [output  (html)]
       (is (= "<html></html>" output)))
@@ -44,7 +44,7 @@
     (let [output  (html "Hello, HTML!")]
       (is (= "<html>Hello, HTML!</html>" output)))))
 
-(deftest test-body-macro
+(deftest body-macro-test
   (testing "body macro generates correct HTML tags"
     (let [output  (body)]
       (is (= "<body></body>" output)))
@@ -52,7 +52,7 @@
     (let [output  (body "Hello, BODY!")]
       (is (= "<body>Hello, BODY!</body>" output)))))
 
-(deftest test-html-and-body-macro
+(deftest html-and-body-macro-test
   (testing "Test the combination of the html macro and body macro"
     (let [output (html (body "Hello, HTML!"))]
       (is (= "<html><body>Hello, HTML!</body></html>" output)))))
