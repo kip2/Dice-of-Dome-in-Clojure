@@ -9,7 +9,6 @@
                        atts))
        ">"))
 
-
 (defmacro tag [name atts & body]
   `(str
     (print-tag '~name
@@ -37,3 +36,6 @@
          :width ~width]
         ~@body))
 
+(defn brightness [col amt]
+  (map (fn [x] (min 255 (max 0 (+ x amt))))
+       col))

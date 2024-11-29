@@ -57,8 +57,26 @@
     (let [output (html (body "Hello, HTML!"))]
       (is (= "<html><body>Hello, HTML!</body></html>" output)))))
 
-(deftest svg-macro
+(deftest svg-macro-test
   (testing "svg macro generates correct svg tags"
     (let [output (svg 100 100 "svg body")]
       (is (= "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" height=\"100\" width=\"100\">svg body</svg>" output)))))
+
+(deftest brightness-test
+  (testing ""
+    (let [color (brightness '(255 0 0) -100)]
+      (is (= '(155 0 0) color)))
+
+    (let [color (brightness '(0 255  0) -100)]
+      (is (= '(0 155 0) color)))
+
+    (let [color (brightness '(0 0 255) -100)]
+      (is (= '(0 0 155) color)))
+
+    (let [color (brightness '(0 0 0) -100)]
+      (is (= '(0 0 0) color)))
+
+    (let [color (brightness '(255 255 255) 100)]
+      (is (= '(255 255 255) color)))))
+
 
