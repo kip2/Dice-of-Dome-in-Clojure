@@ -52,3 +52,19 @@
                  :r radius
                  :style (svg-style color)]))
 
+(defn polygon [points color]
+  (let [points-str (apply str
+                          (interpose " "
+                                     (mapcat (fn [[x y]] [x y]) points)))
+        style (svg-style color)]
+    (tag "polygon"
+         [:points points-str
+          :style style])))
+
+(defn random-walk [value length]
+  (when-not (zero? length)
+    (cons value
+          (random-walk (if (zero? (rand-int 2))
+                         (dec value)
+                         (inc value))
+                       (dec length)))))
