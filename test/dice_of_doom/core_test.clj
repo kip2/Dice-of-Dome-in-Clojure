@@ -95,3 +95,9 @@
     (let [circle-svg (circle [50 50] 50 [255 0 0])]
       (is (= "<circle cx=\"50\" cy=\"50\" r=\"50\" style=\"{fill:rgb(255,0,0);stroke:rgb(155,0,0)}\"></circle>" circle-svg)))))
 
+(deftest polygon-test
+  (testing
+   (let [polygon-svg (polygon [[10 20] [30 40]] [50 50 50])]
+     (is (= "<polygon points=\"10,20 30,40\" style=\"{fill:rgb(50,50,50);stroke:rgb(0,0,0)}\"></polygon>" polygon-svg)))))
+
+

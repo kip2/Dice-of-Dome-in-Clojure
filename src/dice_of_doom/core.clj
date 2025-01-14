@@ -55,7 +55,7 @@
 (defn polygon [points color]
   (let [points-str (apply str
                           (interpose " "
-                                     (mapcat (fn [[x y]] [x y]) points)))
+                                     (map (fn [[x y]] (str x "," y)) points)))
         style (svg-style color)]
     (tag "polygon"
          [:points points-str
@@ -68,3 +68,4 @@
                          (dec value)
                          (inc value))
                        (dec length)))))
+
