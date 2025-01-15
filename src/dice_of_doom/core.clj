@@ -61,11 +61,28 @@
          [:points points-str
           :style style])))
 
-(defn random-walk [value length]
+(defn random-walk   "Generate a random walk sequeance as a list, starting from a given value.
+
+  ## Parameters:
+  - value: The starting value for the random walk.
+  - length: The number of steps in the random walk.
+
+  ## Examples:
+  (random-walk 0 5)
+
+  ;; (0 -1 0 -1 0)
+
+  (random-walk 100 10)
+
+  ;; (100 99 100 101 102 101 102 101 100 99)
+"
+  [value length]
   (when-not (zero? length)
     (cons value
           (random-walk (if (zero? (rand-int 2))
                          (dec value)
                          (inc value))
                        (dec length)))))
+
+
 
