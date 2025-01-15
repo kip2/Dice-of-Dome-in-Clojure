@@ -42,7 +42,7 @@
 
 (defn svg-style [color]
   (let [adjusted-color (brightness color -100)]
-    (format "{fill:rgb(%d,%d,%d);stroke:rgb(%d,%d,%d)}"
+    (format "fill:rgb(%d,%d,%d);stroke:rgb(%d,%d,%d)"
             (nth color 0) (nth color 1) (nth color 2)
             (nth adjusted-color 0) (nth adjusted-color 1) (nth adjusted-color 2))))
 
@@ -84,7 +84,14 @@
                          (inc value))
                        (dec length)))))
 
+(defn save-svg-to-file [filename svg-content]
+  (spit filename svg-content))
 
+(def svg-content
+  (svg 400 200
+       (apply str (for  [_ (range 10)] (polygon (concat [[0 200]]
+                                                        (map-indexed (fn [i n] [i n]) (random-walk 100 400))
+                                                        [[400 200]])
+                                                (repeatedly 3 #(rand-int 256)))))))
 
-
-
+(save-svg-to-file "random-walk.svg" svg-content)
