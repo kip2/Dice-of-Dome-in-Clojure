@@ -68,13 +68,13 @@
   - length: The number of steps in the random walk.
 
   ## Examples:
+  ```clojure
   (random-walk 0 5)
-
   ;; (0 -1 0 -1 0)
 
   (random-walk 100 10)
-
   ;; (100 99 100 101 102 101 102 101 100 99)
+  ```
 "
   [value length]
   (when-not (zero? length)
@@ -83,6 +83,8 @@
                          (dec value)
                          (inc value))
                        (dec length)))))
+
+
 
 
 
