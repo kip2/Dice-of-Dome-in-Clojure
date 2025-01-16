@@ -16,4 +16,7 @@
                   (rand-int num-players)
                   (inc (rand-int max-dice))))))
 
+(defn player-letter [n]
+  (char (+ n 97)))
+
 
