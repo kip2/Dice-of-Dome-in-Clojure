@@ -34,9 +34,14 @@
    ## Example
    ```clojure
    (draw-board (gen-board))
-    ;;   b-1 b-2 
-    ;;  b-1 b-2 
-   ```"
+    ;;   b-1 a-2 
+    ;;  b-2 a-3 
+
+    (draw-board [[0 3] [0 3] [1 3] [1 1]])
+    ;;   a-3 a-3 
+    ;;  b-3 b-1 
+   ```
+   "
   [board]
   (doseq [y (range board-size)]
     (dotimes [_ (- board-size y)]
@@ -49,5 +54,4 @@
                     " "))))
     (print "\n")))
 
-(draw-board (gen-board))
 
