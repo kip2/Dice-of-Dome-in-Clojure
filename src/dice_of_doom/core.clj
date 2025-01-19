@@ -1,6 +1,5 @@
 (ns dice-of-doom.core
-  (:require [clojure.string :as str]
-            [clojure.test :refer :all]))
+  (:require [clojure.test :refer :all]))
 
 (def num-players 2)
 (def max-dice 3)
