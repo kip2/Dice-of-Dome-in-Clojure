@@ -53,4 +53,12 @@
                     " "))))
     (print "\n")))
 
+;; todo: 正しい出力を確定し、テストコードを書く
+(defn board-attack [board player src dst dice]
+  (map-indexed
+   (fn [pos hex]
+     (cond (= pos src) (list player 1)
+           (= pos dst) (list player (dec dice))
+           :else hex))
+   board))
 
