@@ -16,3 +16,9 @@
     (is (= (player-letter 2) \c))
     (is (= (player-letter 25) \z))))
 
+(deftest player-test
+  (testing
+   (let [test-data [[1 2] [2 3] [3 4]]]
+     (is (= (player test-data 1) 2))
+     (is (= (player test-data 0) 1))
+     (is (= (player test-data 2) 3)))))

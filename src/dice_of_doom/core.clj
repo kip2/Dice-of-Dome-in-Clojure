@@ -62,3 +62,7 @@
            :else hex))
    board))
 
+(defn player [board pos]
+  (first (get board pos)))
+
+
