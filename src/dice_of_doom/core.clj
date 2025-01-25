@@ -9,7 +9,16 @@
 (defn board-array [lst]
   (vec lst))
 
-(defn player-letter [n]
+(defn player-letter
+  "Converts a numeric value into a character.
+
+  ## Example
+  ```clojure
+  (player-letter 1)
+  ;; \\a
+  ```
+  "
+  [n]
   (char (+ n 97)))
 
 (defn gen-board
