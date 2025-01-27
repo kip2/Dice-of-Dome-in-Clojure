@@ -74,4 +74,5 @@
 (defn player [board pos]
   (first (get board pos)))
 
-
+(defn dice [board pos]
+  (second (get board pos)))

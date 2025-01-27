@@ -22,3 +22,10 @@
      (is (= (player test-data 1) 2))
      (is (= (player test-data 0) 1))
      (is (= (player test-data 2) 3)))))
+
+(deftest dice-test
+  (testing
+   (let [test-data [[1 2] [2 3] [3 4]]]
+     (is (= (dice test-data 0) 2))
+     (is (= (dice test-data 1) 3))
+     (is (= (dice test-data 2) 4)))))
