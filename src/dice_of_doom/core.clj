@@ -71,8 +71,54 @@
            :else hex))
    board))
 
+(defn game-tree [board player spare-dice first-move]
+;; todo: implement me!
+  nil)
+
+(defn add-passing-move [board player spare-dice first-move moves]
+;; todo: implement me!
+  nil)
+
+(defn neighbors
+  "Return a list of adjacent cells for a specified cell on a hexagonal game board.
+
+  The game board is reppresented as a hexagonal grid:
+
+      0  1
+    2  3
+
+  Adjacent cells are calculated based on the board layout:
+  - Cell 0 is adjacent to cells 1 and 2 and 3.
+  - Cell 1 is adjacent to cells 0 and 3.
+  - Cell 2 is adjacent to cells 0 and 3.
+  - Cell 3 is adjacent to cells 0 and 1 and 2.
+
+  ## Example
+  ```clojure
+  (neighbors 0)
+  ;; (2 1 3)
+
+  (neighbors 2)
+  ;; (0 3)
+  ```
+  "
+  [pos]
+  (let [up (- pos board-size)
+        down (+ pos board-size)]
+    (for [p (concat (list up down)
+                    (when-not (zero? (mod pos board-size))
+                      (list (dec up) (dec pos)))
+                    (when-not (zero? (mod (inc pos) board-size))
+                      (list (inc pos) (inc down))))
+          :when (and (>= p 0) (< p board-hexnum))]
+      p)))
+
 (defn player [board pos]
   (first (get board pos)))
 
 (defn dice [board pos]
   (second (get board pos)))
+
+(defn attacking-moves [board cur-player spare-dice]
+;; todo: inplemente me!
+  nil)

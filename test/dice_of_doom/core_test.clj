@@ -29,3 +29,10 @@
      (is (= (dice test-data 0) 2))
      (is (= (dice test-data 1) 3))
      (is (= (dice test-data 2) 4)))))
+
+(deftest neighbors-test
+  (testing
+   (is (= (neighbors 0) '(2 1 3)))
+    (is (= (neighbors 1) '(3 0)))
+    (is (= (neighbors 2) '(0 3)))
+    (is (= (neighbors 3) '(1 0 2)))))
