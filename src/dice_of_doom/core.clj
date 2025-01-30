@@ -75,6 +75,18 @@
 ;; todo: implement me!
   nil)
 
+(defn add-new-dice [board player spare-dice]
+  (letfn [(f [lst n]
+            (cond (nil? lst) nil
+                  (zero? n) lst
+                  :else (let [cur-player (first (first lst))
+                              cur-dice (first (rest (first lst)))]
+                          (cond (and (= cur-player player) (< cur-dice max-dice))
+                                (cons (list cur-player (inc cur-dice))
+                                      (f (rest lst) (dec n)))
+                                :else (cons (first lst) (f (rest lst) n))))))]
+    (board-array (f (into '() board) spare-dice))))
+
 (defn add-passing-move [board player spare-dice first-move moves]
 ;; todo: implement me!
   nil)
